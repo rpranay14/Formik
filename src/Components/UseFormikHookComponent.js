@@ -1,6 +1,6 @@
 import { useFormik } from 'formik'
 import React from 'react';
-
+import * as Yup  from 'yup';
 const initialValues={
     
         name:"",
@@ -31,12 +31,17 @@ const validate=(values)=>{
     return errors
 
 }
+const validationSchema=Yup.object({
+    name:Yup.string().required("Required!!"),
+    email:Yup.string().email("Invalid email Format").required("Required"),
+    password:Yup.string().min(7,"Password Length should be greater than 7").required("Required")
+})
 
 const UseFormikHookComponent = () => {
     const formik=useFormik({
         initialValues,
         onSubmit,
-        validate
+        validationSchema
     })
   
   return (
