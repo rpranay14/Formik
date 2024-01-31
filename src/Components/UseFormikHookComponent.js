@@ -11,7 +11,7 @@ const initialValues={
 const onSubmit=(values)=>{
     console.log(values)
 }
-const validate=(values)=>{
+/* const validate=(values)=>{
     let errors={}
     if(!values.name){
         errors.name="Required"
@@ -30,7 +30,7 @@ const validate=(values)=>{
     }
     return errors
 
-}
+} */
 const validationSchema=Yup.object({
     name:Yup.string().required("Required!!"),
     email:Yup.string().email("Invalid email Format").required("Required"),
@@ -71,4 +71,6 @@ const UseFormikHookComponent = () => {
   )
 }
 
-export default UseFormikHookComponent
+export default UseFormikHookComponent;
+
+// Now we can see that we are using onChange,onBlur,values in every input field, so we can remove that using getFieldProps(), which is explained in UseFormikReduceBoilerPlate component
