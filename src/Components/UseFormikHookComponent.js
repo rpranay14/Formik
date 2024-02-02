@@ -2,11 +2,9 @@ import { useFormik } from 'formik'
 import React from 'react';
 import * as Yup  from 'yup';
 const initialValues={
-    
         name:"",
         email:"",
         password:""
-    
 }
 const onSubmit=(values)=>{
     console.log(values)
